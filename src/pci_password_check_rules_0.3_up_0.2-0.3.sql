@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2025 Evandro Giachetto <evandro@hey-dba.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
 -- Version 0.3 Update Path (Part 5: The Ghost of Passwords Past – Battling Reusability with pgtle)
 -- This script updates the 'pci_password_check_rules' pg_tle extension from version 0.2 to 0.3.
 -- It adds functionality to enforce PCI DSS 4.0.1 Requirement 8.3.7: password reusability.
