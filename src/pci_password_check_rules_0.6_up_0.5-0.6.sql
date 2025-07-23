@@ -953,8 +953,8 @@ select * from (values
       
       END IF;
 
-      -- On successful login, reset failed attempts and update last_activity and last_successful_login.
-      -- Set password_first_login to FALSE. This will prevent the user from logging in again if it doesn't reset the password.
+      -- On successful login, reset failed attempts and update last_activity/last_successful_login.
+      -- Crucially, set password_first_login to FALSE. This will prevent the user from logging in again if it doesn't reset the password.
       UPDATE password_check.user_login_activity la
       SET failed_attempts = 0, last_activity = NOW(), last_successful_login = NOW(), password_first_login = FALSE
       WHERE la.username = l_username;
@@ -1107,7 +1107,7 @@ select * from (values
       
       RAISE DEBUG 'CREATE USER -> Enforce a reset upon the next user login. passcheck_hook.username: %', passcheck_hook.username;
       --CREATE USER -> Enforce a reset upon the next user login.
-      INSERT INTO password_check.user_login_activity(username,password_reset_required, password_first_login)
+      INSERT INTO password_check.user_login_activity(username, password_reset_required, password_first_login)
       VALUES (passcheck_hook.username, true, true)
       ON CONFLICT (username) DO UPDATE
       SET 
